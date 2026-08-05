@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import VentureNetwork from '../components/VentureNetwork.astro';
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -40,7 +41,7 @@ const year = new Date().getFullYear();
     <main id="content" class="page-shell">
       <nav class="nav" aria-label="Primary">
         <a class="brand" href="#top" aria-label="Evento Globolo home"><span class="brand-mark" aria-hidden="true"></span><span>Evento Globolo</span></a>
-        <div class="nav-links"><a href="#platform">Platform</a><a href="#workflow">Workflow</a><a href="#principles">Principles</a><a href="#contact" class="nav-cta">Early access</a></div>
+        <div class="nav-links"><a href="#platform">Platform</a><a href="#workflow">Workflow</a><a href="#principles">Principles</a><a href="#network">Network</a><a href="#contact" class="nav-cta">Early access</a></div>
       </nav>
       <section id="top" class="hero section-grid">
         <div class="hero-copy">
@@ -83,6 +84,7 @@ const year = new Date().getFullYear();
         <div class="arch-card"><strong>Attribution stays attached</strong><span>Source links, promo codes, and campaign waves remain part of the event record from click through attendance.</span></div>
         <div class="arch-card"><strong>Humans approve the message</strong><span>Automation prepares and schedules channel work while organizers retain editorial and operational control.</span></div>
       </section>
+      <VentureNetwork current="evento-globolo" />
       <section id="contact" class="launch">
         <p class="eyebrow">Early access</p><h2>Use your next event as the pilot.</h2><p>Share the event type, city, expected capacity, current channels, and launch date. Early pilots will shape publishing and ticketing priorities.</p>
         <div class="hero-actions" style="justify-content:center;"><a class="button primary" href="mailto:hello@evento-globolo.com?subject=Evento%20Globolo%20pilot%20event">Launch a pilot event</a><a class="button secondary" href="https://github.com/evento-globolo" rel="me">Explore the GitHub organization</a></div>
