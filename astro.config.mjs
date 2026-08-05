@@ -1,2 +1,2 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ site: 'https://evento-globolo.github.io', output: 'static' });
+export default defineConfig({ output: 'static' });
