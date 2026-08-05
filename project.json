@@ -1,0 +1,20 @@
+{
+  "bootstrap_date": "20260804",
+  "kind": "marketing",
+  "organization": "evento-globolo",
+  "preserves_existing_site": true,
+  "repository": "evento-globolo.github.io",
+  "required_paths": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/contracts.yml",
+    ".zpkg.toml",
+    "astro.config.mjs",
+    "package.json",
+    "scripts/verify_repo.py",
+    "src/pages/index.astro",
+    "tests"
+  ],
+  "schema_version": 1,
+  "tracking_issue": "DEN-1889",
+  "visibility": "public"
+}
