@@ -1,95 +1,45 @@
----
-import '../styles/global.css';
-import VentureNetwork from '../components/VentureNetwork.astro';
-const year = new Date().getFullYear();
----
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A global event operating console for listings, ticketing, reminders, channel promotion, attendee sync, and partner-ready reporting." />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <link rel="canonical" href="https://evento-globolo.github.io/" />
-    <meta property="og:title" content="Evento Globolo" />
-    <meta property="og:description" content="Create once. Fill the room everywhere. Coordinate event listings, promotion, RSVP data, and reporting from one canonical brief." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://evento-globolo.github.io/" />
-    <meta property="og:site_name" content="Evento Globolo" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Evento Globolo" />
-    <meta name="twitter:description" content="Create once. Fill the room everywhere. Coordinate event listings, promotion, RSVP data, and reporting from one canonical brief." />
-    <meta name="theme-color" content="#f97316" />
-    <link rel="icon" href="/favicon.svg" />
-    <title>Evento Globolo — Create once. Fill the room everywhere.</title>
-    <style is:global>
-      .skip-link { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 10px 14px; border-radius: 999px; background: #fff; color: #05070d; font-weight: 800; transform: translateY(-160%); transition: transform .18s ease; }
-      .skip-link:focus { transform: translateY(0); }
-      :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 4px; }
-      .status-chip { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: rgba(255,255,255,.07); color: rgba(248,250,252,.82); font-size: 13px; font-weight: 800; }
-      .status-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 18px var(--accent-2); }
-      .site-footer { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; padding: 48px 0 12px; color: rgba(226,232,240,.64); font-size: 14px; }
-      .site-footer p { max-width: 720px; margin: 0; font-size: 13px; }
-      .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; font-weight: 750; }
-      .footer-links a:hover { color: #fff; }
-      @media (max-width: 700px) { .site-footer { flex-direction: column; } .footer-links { justify-content: flex-start; } }
-      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
-    </style>
-  </head>
-  <body style="--accent: #f97316; --accent-2: #22c55e;">
-    <a class="skip-link" href="#content">Skip to content</a>
-    <main id="content" class="page-shell">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="#top" aria-label="Evento Globolo home"><span class="brand-mark" aria-hidden="true"></span><span>Evento Globolo</span></a>
-        <div class="nav-links"><a href="#platform">Platform</a><a href="#workflow">Workflow</a><a href="#principles">Principles</a><a href="#network">Network</a><a href="#contact" class="nav-cta">Early access</a></div>
-      </nav>
-      <section id="top" class="hero section-grid">
-        <div class="hero-copy">
-          <span class="status-chip">Early access</span>
-          <p class="eyebrow">Event distribution · early access</p>
-          <h1>Create once. Fill the room everywhere.</h1>
-          <p class="hero-text">Turn one canonical event brief into channel-specific listings, promotion waves, RSVP and ticket sync, organizer tasks, and partner-ready results.</p>
-          <div class="hero-actions"><a class="button primary" href="mailto:hello@evento-globolo.com?subject=Evento%20Globolo%20pilot%20event">Launch a pilot event</a><a class="button secondary" href="#workflow">See the operating loop</a></div>
-          <div class="trust-row" aria-label="Product principles"><span>One source of truth</span><span>Channel-aware promotion</span><span>Attribution that survives handoffs</span></div>
-        </div>
-        <aside class="hero-panel" aria-label="Product snapshot">
-          <div class="pulse-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="stat-card"><strong>One → many</strong><span>a canonical event across every channel</span></div>
-          <div class="signal-list"><p>Designed for</p><h2>promoters, communities, venues, meetups, conferences, hacker houses, creators, and city operators</h2></div>
-        </aside>
-      </section>
-      <section id="platform" class="platform">
-        <div class="section-heading"><p class="eyebrow">Platform</p><h2>The operating layer between an event idea and a full room.</h2><p>Keep descriptions, dates, inventory, promotion, attendee status, organizer work, and reporting aligned across channels.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card"><span class="feature-dot"></span><h3>Canonical event brief</h3><p>Define the promise, schedule, venue, capacity, audience, assets, pricing, partners, and source links once.</p></article>
-          <article class="feature-card"><span class="feature-dot"></span><h3>Channel-specific publishing</h3><p>Shape copy and calls to action for owned pages, calendars, social channels, event platforms, communities, and partners.</p></article>
-          <article class="feature-card"><span class="feature-dot"></span><h3>RSVP and ticket sync</h3><p>Reconcile attendees, waitlists, check-ins, promo codes, refunds, and follow-up without spreadsheet archaeology.</p></article>
-          <article class="feature-card"><span class="feature-dot"></span><h3>Operations cockpit</h3><p>Watch capacity, conversion, check-in velocity, organizer tasks, sponsor deliverables, and run-of-show changes.</p></article>
-        </div>
-      </section>
-      <section id="workflow" class="workflow section-grid">
-        <div><p class="eyebrow">Workflow</p><h2>A repeatable circuit from brief to post-event insight.</h2><p>Every channel receives the right version while the underlying event, inventory, and results stay coherent.</p></div>
-        <ol class="steps">
-          <li><span>01</span><strong>Create one complete event brief</strong></li>
-          <li><span>02</span><strong>Generate channel-ready listings and assets</strong></li>
-          <li><span>03</span><strong>Schedule launch, reminder, and last-call waves</strong></li>
-          <li><span>04</span><strong>Sync RSVP, ticket, and check-in state</strong></li>
-          <li><span>05</span><strong>Report conversion and outcomes by source</strong></li>
-        </ol>
-      </section>
-      <section id="integrations" class="integrations"><div class="section-heading compact"><p class="eyebrow">Ecosystem</p><h2>Meet teams where their work already happens.</h2></div><div class="integration-marquee"><span>Eventbrite</span><span>Meetup</span><span>Meta surfaces</span><span>Google Calendar</span><span>Slack &amp; Discord</span><span>Email platforms</span></div></section>
-      <section id="principles" class="architecture">
-        <div class="arch-card large"><p class="eyebrow">Principles</p><h2>Built for organizers who need both reach and control.</h2><p>Distribution should widen the audience without fragmenting the truth. Evento Globolo keeps the canonical event and every channel-specific action connected.</p></div>
-        <div class="arch-card"><strong>One event, many expressions</strong><span>Channel copy can vary without drifting on dates, pricing, location, capacity, or the core promise.</span></div>
-        <div class="arch-card"><strong>Attribution stays attached</strong><span>Source links, promo codes, and campaign waves remain part of the event record from click through attendance.</span></div>
-        <div class="arch-card"><strong>Humans approve the message</strong><span>Automation prepares and schedules channel work while organizers retain editorial and operational control.</span></div>
-      </section>
-      <VentureNetwork current="evento-globolo" />
-      <section id="contact" class="launch">
-        <p class="eyebrow">Early access</p><h2>Use your next event as the pilot.</h2><p>Share the event type, city, expected capacity, current channels, and launch date. Early pilots will shape publishing and ticketing priorities.</p>
-        <div class="hero-actions" style="justify-content:center;"><a class="button primary" href="mailto:hello@evento-globolo.com?subject=Evento%20Globolo%20pilot%20event">Launch a pilot event</a><a class="button secondary" href="https://github.com/evento-globolo" rel="me">Explore the GitHub organization</a></div>
-      </section>
-      <footer class="site-footer"><p>© {year} Evento Globolo. Third-party publishing and ticketing capabilities depend on each platform’s API, permissions, and current policies.</p><div class="footer-links"><a href="https://github.com/evento-globolo">GitHub</a><a href="mailto:hello@evento-globolo.com">Contact</a><a href="#top">Back to top</a></div></footer>
-    </main>
-  </body>
-</html>
+            ---
+            const title = "Evento Globolo";
+            const description = "Create once, coordinate everywhere, and grow real-world communities.";
+            ---
+            <!doctype html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width" />
+                <meta name="description" content={description} />
+                <title>{title}</title>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+                <link rel="stylesheet" href="/styles.css" />
+              </head>
+              <body>
+                <div class="noise"></div>
+                <header>
+                  <a class="brand" href="/"><i></i>{title}</a>
+                  <nav aria-label="Primary">
+                    <a href="#product">Product</a><a href="#principles">Principles</a><a class="pill" href="#contact">Join the launch</a>
+                  </nav>
+                </header>
+                <main>
+                  <section class="hero">
+                    <p class="eyebrow">BUILT FOR REAL-WORLD OPERATIONS</p>
+                    <h1>Create once, coordinate everywhere, and grow real-world communities.</h1>
+                    <p class="lede">A focused platform with clear state, dependable automation, and a human handoff whenever judgment matters.</p>
+                    <div class="actions"><a class="primary" href="#contact">Get early access <b>↗</b></a><a class="secondary" href="#product">Explore the system</a></div>
+                    <div class="signal"><span></span><p><strong>Foundation ready.</strong> Rust services, typed clients, edge infrastructure, and operational telemetry.</p></div>
+                  </section>
+                  <section class="cards" id="product"><article><span>01</span><h3>Publish from one source</h3><p>Keep the canonical event in Evento Globolo, then distribute through supported provider APIs.</p></article>
+<article><span>02</span><h3>Respect every platform</h3><p>Capability-aware adapters use native automation where allowed and guided handoffs where it is not.</p></article>
+<article><span>03</span><h3>Watch work happen</h3><p>Live job status, retries, provider receipts, and reconciliation make cross-posting observable.</p></article></section>
+                  <section class="manifesto" id="principles">
+                    <p>OUR OPERATING PRINCIPLE</p>
+                    <h2>Automate the repetitive work.<br/>Keep consequential decisions visible.</h2>
+                    <div class="metrics"><div><strong>01</strong><span>Canonical source of truth</span></div><div><strong>02</strong><span>Idempotent workflows</span></div><div><strong>03</strong><span>Observable outcomes</span></div></div>
+                  </section>
+                  <section class="contact" id="contact"><div><p>EARLY ACCESS</p><h2>Help shape the first release.</h2></div><a href="mailto:hello@evento-globolo.com">hello@evento-globolo.com <b>↗</b></a></section>
+                </main>
+                <footer><span>© 2026 {title}</span><span>Built deliberately.</span></footer>
+              </body>
+            </html>
