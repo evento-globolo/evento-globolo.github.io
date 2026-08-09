@@ -1,21 +1,9 @@
 # evento-globolo.github.io
 
-Astro marketing site for **Evento Globolo**.
+Astro marketing site for Evento Globolo. Built as a static GitHub Pages deployment.
 
-- Built with Astro, not Jekyll.
-- Uses GitHub Pages Actions deployment.
-- Includes a responsive landing page, SEO metadata, favicon, proof points, workflow, integrations, architecture, and launch CTA.
-- `public/.nojekyll` is present only to bypass Jekyll processing on Pages; there is no Jekyll site or `_config.yml`.
-
-## Commands
-
-```bash
+```sh
 npm install
 npm run dev
 npm run build
-npm test
 ```
-
-## Repository family
-
-The site links the public product narrative to the `evgl-clients`, `evgl-libs`, `evgl-monorepo`, and `evgl-infra` repositories. GitHub Pages deployment is handled by Actions; Jekyll is not used.
