@@ -14,3 +14,23 @@
 - `evento-globolo-monorepo` coordinates pinned revisions and cross-repository compatibility.
 
 The marketing site may explain and link versioned contracts but must not duplicate service logic or become a generic edge proxy. Public copy, accessibility, performance, and stable URLs are product behavior and require review and tests.
+# Architecture
+
+Marketing, documentation, privacy, support, and public integration guidance for Evento Globolo.
+
+## Fleet
+
+- `evgl-interfaces`
+- `evgl-api`
+- `evgl-mash-web`
+- `evgl-leptos-web`
+- `evgl-dioxus-web`
+- `evgl-sync`
+- `evgl-cli`
+- `evgl-infra`
+- `evento-globolo-clients`
+- `evento-globolo-libs`
+- `evento-globolo.github.io`
+- `evento-globolo-monorepo`
+
+Interfaces own wire formats; libraries own reusable domain behavior; clients consume versioned contracts; runtimes own deployment behavior; monorepos coordinate pinned revisions. Edge code is allowlisted and never a generic proxy.
