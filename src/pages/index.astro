@@ -1,16 +1,61 @@
----
-import document from '../../index.html?raw';
-
-const head = document.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
-const body = document.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? '';
----
-
 <!doctype html>
 <html lang="en">
   <head>
-    <Fragment set:html={head} />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="A global events operating system for discovery, publishing, RSVP, ticketing, venues, organizers, and communities." />
+    <meta name="theme-color" content="#f3eddd" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://evento-globolo.github.io/" />
+    <meta property="og:title" content="Evento Globolo — The world is already happening" />
+    <meta property="og:description" content="A global events operating system for discovery, publishing, RSVP, ticketing, venues, organizers, and communities." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://evento-globolo.github.io/" />
+    <meta name="twitter:card" content="summary" />
+    <title>Evento Globolo — The world is already happening</title>
+    <style>
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:320px}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+button,input{font:inherit}
+.skip{position:absolute;left:-9999px;top:0;z-index:1000;padding:.7rem 1rem;background:#fff;color:#000}
+.skip:focus{left:1rem;top:1rem}
+:focus-visible{outline:3px solid currentColor;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+:root{--paper:#f3eddd;--ink:#171717;--red:#e33124;--blue:#164ac7;--yellow:#f2c94c;--line:#171717}
+body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:radial-gradient(#333 .55px,transparent .55px);background-size:5px 5px}
+header{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:center;padding:1rem clamp(1rem,4vw,4rem);border-bottom:3px solid var(--ink);text-transform:uppercase;font-weight:900}.wordmark{font-size:clamp(1.25rem,2vw,2rem);letter-spacing:-.05em;text-decoration:none}.wordmark span{color:var(--red)}nav{display:flex;gap:1.25rem;font:700 .72rem ui-monospace,monospace}nav a{text-decoration:none}nav a:hover{color:var(--blue)}
+main{position:relative;z-index:1}.mast{display:grid;grid-template-columns:1.12fr .88fr;min-height:76vh;border-bottom:3px solid var(--ink)}.mast-copy{padding:clamp(3rem,7vw,7rem) clamp(1rem,4vw,4rem);border-right:3px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between}.edition{display:flex;justify-content:space-between;font:700 .7rem ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em}.mast h1{font-size:clamp(4.8rem,12vw,12rem);line-height:.72;letter-spacing:-.09em;text-transform:uppercase;margin:4rem 0 2rem;max-width:8ch}.mast h1 i{font-family:Georgia,serif;font-weight:400;text-transform:none;color:var(--red)}.lede{font-family:Georgia,serif;font-size:clamp(1.2rem,2.2vw,2rem);line-height:1.35;max-width:26ch}.links{display:flex;flex-wrap:wrap;gap:0;margin-top:2rem}.links a{padding:.8rem 1rem;border:2px solid var(--ink);text-decoration:none;text-transform:uppercase;font:800 .72rem ui-monospace,monospace;margin-right:-2px}.links a:first-child{background:var(--ink);color:var(--paper)}
+.route{padding:2rem clamp(1rem,4vw,3rem);background:var(--yellow);position:relative;overflow:hidden}.route:after{content:"GLOBOLO";position:absolute;right:-.08em;bottom:-.2em;font-size:clamp(7rem,17vw,17rem);font-weight:900;letter-spacing:-.1em;opacity:.08}.route h2{text-transform:uppercase;font-size:.85rem;letter-spacing:.12em;margin:0 0 2rem}.stops{list-style:none;margin:0;padding:0;position:relative}.stops:before{content:"";position:absolute;left:5.35rem;top:.7rem;bottom:1.8rem;width:3px;background:var(--ink)}.stop{display:grid;grid-template-columns:4rem 1.5rem 1fr;gap:.6rem;min-height:7.2rem;position:relative}.time{font:900 .78rem ui-monospace,monospace}.dot{width:15px;height:15px;border:3px solid var(--ink);background:var(--paper);z-index:1}.stop:nth-child(2) .dot{background:var(--red)}.stop:nth-child(3) .dot{background:var(--blue)}.stop h3{font-size:clamp(1.2rem,2vw,2rem);margin:-.35rem 0 .25rem;letter-spacing:-.04em}.stop p{margin:0;font: .78rem/1.4 ui-monospace,monospace;max-width:28ch}
+.operations{display:grid;grid-template-columns:2fr 1fr;border-bottom:3px solid var(--ink)}.manifest{padding:clamp(3rem,6vw,6rem) clamp(1rem,4vw,4rem);border-right:3px solid var(--ink)}.manifest h2{font-size:clamp(3rem,7vw,7.5rem);line-height:.82;letter-spacing:-.08em;text-transform:uppercase;margin:0 0 3rem}.manifest table{width:100%;border-collapse:collapse;font:700 .78rem/1.3 ui-monospace,monospace}.manifest th,.manifest td{text-align:left;padding:1rem .5rem;border-top:2px solid var(--ink)}.manifest th{width:28%;text-transform:uppercase;color:var(--blue)}.ticket{padding:2rem;display:flex;flex-direction:column;justify-content:space-between;background:var(--blue);color:white;min-height:540px}.ticket:before,.ticket:after{content:"";display:block;border-top:3px dashed rgba(255,255,255,.65)}.ticket small{font:700 .68rem ui-monospace,monospace;text-transform:uppercase;letter-spacing:.12em}.ticket strong{display:block;font-size:clamp(3rem,6vw,6rem);line-height:.8;text-transform:uppercase;letter-spacing:-.08em;transform:rotate(-3deg)}.ticket .code{font:700 .8rem ui-monospace,monospace;writing-mode:vertical-rl;align-self:flex-end}
+footer{display:flex;justify-content:space-between;gap:1rem;padding:1rem clamp(1rem,4vw,4rem);font:700 .7rem ui-monospace,monospace;text-transform:uppercase}
+@media(max-width:850px){.mast,.operations{grid-template-columns:1fr}.mast-copy,.manifest{border-right:0;border-bottom:3px solid var(--ink)}nav{display:none}.mast h1{font-size:clamp(4.2rem,22vw,8rem)}.ticket{min-height:380px}.manifest table,.manifest tbody,.manifest tr,.manifest th,.manifest td{display:block}.manifest th{width:auto;padding-bottom:.2rem}.manifest td{border-top:0;padding-top:0}.manifest tr{border-top:2px solid var(--ink);padding:.7rem 0}.manifest th{border:0}}
+
+    </style>
   </head>
   <body>
-    <Fragment set:html={body} />
+    <a class="skip" href="#content">Skip to content</a>
+
+    <header><a class="wordmark" href="#top">Evento <span>Globolo</span></a><nav aria-label="Primary"><a href="#route">Tonight</a><a href="#operations">Organizer OS</a><a href="https://github.com/evento-globolo">Source</a></nav></header>
+    <main id="content">
+      <section class="mast" id="top">
+        <div class="mast-copy"><div class="edition"><span>Global events operating system</span><span>Edition 001</span></div><div><h1>The world is <i>already</i> happening.</h1><p class="lede">Discover it, publish it, reserve a place, open the doors, and keep the community together after the room empties.</p><div class="links"><a href="https://github.com/evento-globolo/evgl-api">Open the event API</a><a href="https://github.com/evento-globolo/evento-globolo.github.io">Site source</a></div></div></div>
+        <aside class="route" id="route"><h2>A sample night / local time</h2><ol class="stops"><li class="stop"><span class="time">18:00</span><span class="dot"></span><div><h3>Medellín / hardware table</h3><p>Workshop · 26 seats · makerspace · Spanish + English</p></div></li><li class="stop"><span class="time">19:30</span><span class="dot"></span><div><h3>Lima / rooftop screening</h3><p>Film · open air · waitlist moving · accessibility notes attached</p></div></li><li class="stop"><span class="time">21:00</span><span class="dot"></span><div><h3>Austin / protocol salon</h3><p>Talks · community published · venue check-in window confirmed</p></div></li><li class="stop"><span class="time">23:15</span><span class="dot"></span><div><h3>Online / after-room</h3><p>Conversation continues · organizer-owned community channel</p></div></li></ol></aside>
+      </section>
+      <section class="operations" id="operations">
+        <div class="manifest"><h2>One event.<br/>Every moving part.</h2><table><tbody><tr><th>Discover</th><td>Search by place, time, format, language, access needs, and the communities behind the listing.</td></tr><tr><th>Publish</th><td>Give organizers durable event records, venue context, schedules, capacities, and change history.</td></tr><tr><th>Attend</th><td>RSVP, ticket, waitlist, check in, and receive only the updates that affect the actual plan.</td></tr><tr><th>Operate</th><td>Connect organizers, venues, door teams, and live state without turning every event into a spreadsheet.</td></tr><tr><th>Continue</th><td>Keep the people, notes, media, and next gathering attached to a community—not trapped in a ticket email.</td></tr></tbody></table></div>
+        <aside class="ticket" aria-label="Illustrative event ticket"><small>Admit one curious person</small><strong>Find<br/>your<br/>room.</strong><span class="code">EVGL / PUBLIC / 2026</span></aside>
+      </section>
+    </main>
+    <footer><span>Discovery · publishing · RSVP · ticketing · venues</span><span>Open-source foundation</span></footer>
+
+
   </body>
 </html>
