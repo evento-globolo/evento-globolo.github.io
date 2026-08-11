@@ -18,7 +18,11 @@ if missing:
 if metadata.get("preserves_existing_site") is not True:
     raise SystemExit("marketing metadata must preserve the existing site")
 for path in root.rglob("*"):
-    if not path.is_file() or ".git" in path.parts or path.stat().st_size > 1_000_000:
+    if (
+        not path.is_file()
+        or any(part in {".git", "node_modules", "dist", ".astro"} for part in path.parts)
+        or path.stat().st_size > 1_000_000
+    ):
         continue
     try:
         text = path.read_text()
