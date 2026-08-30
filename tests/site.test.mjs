@@ -39,6 +39,18 @@ test('landing page preserves its product-specific story', () => {
   assert.match(page, /<style>/);
 });
 
+test('redesign keeps typography bounded and navigation useful on desktop and mobile', () => {
+  assert.match(page, /class="site-header"/);
+  assert.match(page, /position:sticky/);
+  assert.match(page, /class="mobile-nav"/);
+  assert.doesNotMatch(page, /12vw|22vw/);
+  for (const boundary of [
+    'https://user.evento-globolo.github.io/',
+    'https://org.evento-globolo.github.io/',
+    'https://auth.evento-globolo.github.io/',
+  ]) assert.ok(page.includes(boundary), `missing access boundary: ${boundary}`);
+});
+
 test('CI and Pages use locked installs in test-before-build order', () => {
   for (const workflow of [ci, pages]) {
     assert.match(workflow, /npm ci --ignore-scripts --no-audit --no-fund/);
