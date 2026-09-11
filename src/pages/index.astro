@@ -1,95 +1,41 @@
----
-import '../styles/global.css';
-import VentureNetwork from '../components/VentureNetwork.astro';
-const year = new Date().getFullYear();
----
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A global event operating console for listings, ticketing, reminders, channel promotion, attendee sync, and partner-ready reporting." />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="A global events operating system for discovery, publishing, RSVP, ticketing, venues, organizers, and communities." />
+    <meta name="theme-color" content="#11162b" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://evento-globolo.github.io/" />
-    <meta property="og:title" content="Evento Globolo" />
-    <meta property="og:description" content="Create once. Fill the room everywhere. Coordinate event listings, promotion, RSVP data, and reporting from one canonical brief." />
+    <meta property="og:title" content="Evento Globolo — The world is already happening" />
+    <meta property="og:description" content="Discover, publish, coordinate, and continue the events that bring communities together." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://evento-globolo.github.io/" />
-    <meta property="og:site_name" content="Evento Globolo" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Evento Globolo" />
-    <meta name="twitter:description" content="Create once. Fill the room everywhere. Coordinate event listings, promotion, RSVP data, and reporting from one canonical brief." />
-    <meta name="theme-color" content="#f97316" />
-    <link rel="icon" href="/favicon.svg" />
-    <title>Evento Globolo — Create once. Fill the room everywhere.</title>
-    <style is:global>
-      .skip-link { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 10px 14px; border-radius: 999px; background: #fff; color: #05070d; font-weight: 800; transform: translateY(-160%); transition: transform .18s ease; }
-      .skip-link:focus { transform: translateY(0); }
-      :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 4px; }
-      .status-chip { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: rgba(255,255,255,.07); color: rgba(248,250,252,.82); font-size: 13px; font-weight: 800; }
-      .status-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 18px var(--accent-2); }
-      .site-footer { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; padding: 48px 0 12px; color: rgba(226,232,240,.64); font-size: 14px; }
-      .site-footer p { max-width: 720px; margin: 0; font-size: 13px; }
-      .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; font-weight: 750; }
-      .footer-links a:hover { color: #fff; }
-      @media (max-width: 700px) { .site-footer { flex-direction: column; } .footer-links { justify-content: flex-start; } }
-      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+    <title>Evento Globolo — The world is already happening</title>
+    <style>
+      :root{--ink:#11162b;--muted:#626879;--paper:#f7f6f2;--card:#fff;--coral:#ff5c51;--lime:#c8f55c;--sky:#85d8ff;--line:#dfe0e5;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:radial-gradient(circle at 3% 0%,#ffe2dd,transparent 29rem),var(--paper);color:var(--ink)}a{color:inherit}:focus-visible{outline:3px solid var(--coral);outline-offset:4px}.skip{position:fixed;left:1rem;top:1rem;z-index:1000;transform:translateY(-180%);padding:.7rem 1rem;border-radius:999px;background:var(--ink);color:white;font-weight:850}.skip:focus{transform:none}
+      .site-header{position:sticky;top:0;z-index:100;padding:.75rem 0;border-bottom:1px solid #11162b14;background:#f7f6f2e8;backdrop-filter:blur(18px)}.nav-shell{display:flex;align-items:center;gap:1.2rem;width:min(1180px,calc(100% - 2rem));margin:auto}.wordmark{display:flex;align-items:center;gap:.65rem;margin-right:auto;font-weight:900;text-decoration:none}.wordmark:before{content:"EG";display:grid;width:2.25rem;aspect-ratio:1;place-items:center;border-radius:.75rem;background:var(--coral);color:white;font-size:.7rem;box-shadow:0 8px 18px #ff5c5138}.wordmark span{color:var(--coral)}.desktop-nav,.account-nav{display:flex;align-items:center;gap:1.15rem}.desktop-nav a,.account-nav>a:first-child{font-size:.87rem;font-weight:750;text-decoration:none}.desktop-nav a:hover,.account-nav>a:first-child:hover{text-decoration:underline;text-underline-offset:.35rem}.signup{display:inline-flex;padding:.62rem .9rem;border-radius:.75rem;background:var(--ink);color:white;font-size:.84rem;font-weight:850;text-decoration:none}.mobile-nav{display:none}
+      main{width:min(1180px,calc(100% - 2rem));margin:auto}.mast{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,6rem);align-items:center;padding:5.5rem 0 4.5rem}.edition{display:flex;gap:1rem;color:var(--coral);font-size:.7rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.mast h1{max-width:13ch;margin:1rem 0 1.3rem;font-size:clamp(3.2rem,6.7vw,6.3rem);line-height:.92;letter-spacing:-.07em}.mast h1 i{color:var(--coral);font-family:Georgia,"Times New Roman",serif;font-weight:500}.lede{max-width:39rem;color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.28rem);line-height:1.6}.links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}.links a{padding:.78rem 1rem;border:1px solid var(--ink);border-radius:.8rem;font-size:.87rem;font-weight:850;text-decoration:none}.links a:first-child{background:var(--ink);color:white}.route{position:relative;overflow:hidden;padding:1.5rem;border:1px solid #11162b13;border-radius:1.7rem;background:var(--ink);color:white;box-shadow:0 36px 80px #11162b2b}.route:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,#ff5c5145,transparent 45%),linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:auto,2rem 2rem,2rem 2rem}.route h2{position:relative;margin:0 0 1.5rem;color:var(--lime);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}.stops{position:relative;margin:0;padding:0;list-style:none}.stops:before{content:"";position:absolute;left:4.5rem;top:.55rem;bottom:1rem;width:1px;background:#ffffff32}.stop{position:relative;display:grid;grid-template-columns:3.6rem 1rem 1fr;gap:.45rem;min-height:6.5rem}.time{color:#ffffff8c;font:750 .7rem ui-monospace,monospace}.dot{z-index:1;width:.72rem;height:.72rem;border:2px solid var(--ink);border-radius:50%;background:var(--lime);box-shadow:0 0 0 2px #ffffff36}.stop:nth-child(2) .dot{background:var(--coral)}.stop:nth-child(3) .dot{background:var(--sky)}.stop h3{margin:-.2rem 0 .25rem;font-size:1.05rem}.stop p{max-width:30ch;margin:0;color:#ffffff86;font-size:.78rem;line-height:1.45}
+      .operations{display:grid;grid-template-columns:1.35fr .65fr;gap:1rem;padding:5rem 0}.manifest,.ticket{border-radius:1.5rem}.manifest{padding:clamp(1.5rem,4vw,3rem);border:1px solid var(--line);background:var(--card)}.manifest h2{max-width:12ch;margin:0 0 2.5rem;font-size:clamp(2.3rem,4.8vw,4.7rem);line-height:.95;letter-spacing:-.06em}.manifest table{width:100%;border-collapse:collapse}.manifest th,.manifest td{padding:1rem .5rem;border-top:1px solid var(--line);text-align:left;vertical-align:top}.manifest th{width:24%;color:var(--coral);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}.manifest td{color:var(--muted);font-size:.92rem;line-height:1.55}.ticket{display:flex;flex-direction:column;justify-content:space-between;min-height:34rem;padding:1.6rem;background:var(--lime);box-shadow:0 28px 60px #759b1d26}.ticket:before,.ticket:after{content:"";display:block;border-top:2px dashed #11162b55}.ticket small{font-size:.67rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.ticket strong{font-size:clamp(2.4rem,4.8vw,4.8rem);line-height:.88;letter-spacing:-.07em;text-transform:uppercase}.ticket .code{align-self:flex-end;font:750 .73rem ui-monospace,monospace;writing-mode:vertical-rl}
+      .crosspost{margin-bottom:5rem;padding:clamp(2rem,5vw,4rem);border-radius:1.7rem;background:var(--coral);color:white}.crosspost h2{max-width:15ch;margin:0;font-size:clamp(2.2rem,4.7vw,4.5rem);line-height:.96;letter-spacing:-.06em}.crosspost .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:2rem}.crosspost article{min-height:12rem;padding:1.2rem;border:1px solid #ffffff35;border-radius:1rem;background:#ffffff10}.crosspost article>span{color:var(--lime);font-size:.7rem;font-weight:900}.crosspost article h3{margin:2rem 0 .5rem}.crosspost article p{margin:0;color:#ffffffbd;font-size:.88rem;line-height:1.55}
+      .access{display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;align-items:start;padding:1rem 0 6rem}.access h2{max-width:13ch;margin:0;font-size:clamp(2.2rem,4.5vw,4.3rem);line-height:.98;letter-spacing:-.06em}.access-links{display:grid;gap:.7rem}.access-links a{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.9rem;background:var(--card);text-decoration:none}.access-links small{color:var(--coral);font-weight:850;text-transform:uppercase}.access-links strong{font-size:.95rem}.site-footer{background:var(--ink);color:white}.footer-shell{display:grid;grid-template-columns:1.7fr repeat(2,1fr);gap:3rem;width:min(1180px,calc(100% - 2rem));margin:auto;padding:4rem 0}.footer-shell>div p{max-width:31rem;color:#ffffff8c;line-height:1.6}.footer-shell nav{display:grid;align-content:start;gap:.7rem}.footer-shell nav strong{margin-bottom:.3rem;color:var(--lime);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}.footer-shell nav a{color:#ffffffa8;font-size:.88rem;text-decoration:none}.footer-base{display:flex;justify-content:space-between;width:min(1180px,calc(100% - 2rem));margin:auto;padding:1.2rem 0 2rem;border-top:1px solid #ffffff1d;color:#ffffff70;font-size:.77rem}
+      @media(max-width:840px){.desktop-nav,.account-nav{display:none}.mobile-nav{display:block}.mobile-nav summary{padding:.55rem .8rem;border:1px solid #11162b22;border-radius:.75rem;font-weight:850;list-style:none}.mobile-nav[open] nav{position:absolute;top:calc(100% + .45rem);right:1rem;left:1rem;display:grid;gap:.3rem;padding:1rem;border-radius:1rem;background:var(--ink);color:white;box-shadow:0 28px 65px #11162b55}.mobile-nav nav a{padding:.75rem;text-decoration:none}.mast,.operations,.access{grid-template-columns:1fr}.mast h1{font-size:clamp(3.1rem,11vw,5.6rem)}.operations{padding-top:2rem}.ticket{min-height:24rem}.crosspost .cards{grid-template-columns:1fr 1fr}.footer-shell{grid-template-columns:1.5fr 1fr}.footer-shell nav:last-child{display:none}}
+      @media(max-width:560px){.mast{padding-top:3.5rem}.mast h1{font-size:clamp(2.9rem,13vw,4.25rem)}.edition span:last-child{display:none}.route{padding:1.1rem}.manifest table,.manifest tbody,.manifest tr,.manifest th,.manifest td{display:block}.manifest tr{padding:.7rem 0;border-top:1px solid var(--line)}.manifest th,.manifest td{width:auto;padding:.25rem 0;border:0}.crosspost .cards{grid-template-columns:1fr}.footer-shell{grid-template-columns:1fr}.footer-base{flex-direction:column;gap:.4rem}}
+      @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
     </style>
   </head>
-  <body style="--accent: #f97316; --accent-2: #22c55e;">
-    <a class="skip-link" href="#content">Skip to content</a>
-    <main id="content" class="page-shell">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="#top" aria-label="Evento Globolo home"><span class="brand-mark" aria-hidden="true"></span><span>Evento Globolo</span></a>
-        <div class="nav-links"><a href="#platform">Platform</a><a href="#workflow">Workflow</a><a href="#principles">Principles</a><a href="#network">Network</a><a href="#contact" class="nav-cta">Early access</a></div>
-      </nav>
-      <section id="top" class="hero section-grid">
-        <div class="hero-copy">
-          <span class="status-chip">Early access</span>
-          <p class="eyebrow">Event distribution · early access</p>
-          <h1>Create once. Fill the room everywhere.</h1>
-          <p class="hero-text">Turn one canonical event brief into channel-specific listings, promotion waves, RSVP and ticket sync, organizer tasks, and partner-ready results.</p>
-          <div class="hero-actions"><a class="button primary" href="mailto:hello@evento-globolo.com?subject=Evento%20Globolo%20pilot%20event">Launch a pilot event</a><a class="button secondary" href="#workflow">See the operating loop</a></div>
-          <div class="trust-row" aria-label="Product principles"><span>One source of truth</span><span>Channel-aware promotion</span><span>Attribution that survives handoffs</span></div>
-        </div>
-        <aside class="hero-panel" aria-label="Product snapshot">
-          <div class="pulse-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="stat-card"><strong>One → many</strong><span>a canonical event across every channel</span></div>
-          <div class="signal-list"><p>Designed for</p><h2>promoters, communities, venues, meetups, conferences, hacker houses, creators, and city operators</h2></div>
-        </aside>
-      </section>
-      <section id="platform" class="platform">
-        <div class="section-heading"><p class="eyebrow">Platform</p><h2>The operating layer between an event idea and a full room.</h2><p>Keep descriptions, dates, inventory, promotion, attendee status, organizer work, and reporting aligned across channels.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card"><span class="feature-dot"></span><h3>Canonical event brief</h3><p>Define the promise, schedule, venue, capacity, audience, assets, pricing, partners, and source links once.</p></article>
-          <article class="feature-card"><span class="feature-dot"></span><h3>Channel-specific publishing</h3><p>Shape copy and calls to action for owned pages, calendars, social channels, event platforms, communities, and partners.</p></article>
-          <article class="feature-card"><span class="feature-dot"></span><h3>RSVP and ticket sync</h3><p>Reconcile attendees, waitlists, check-ins, promo codes, refunds, and follow-up without spreadsheet archaeology.</p></article>
-          <article class="feature-card"><span class="feature-dot"></span><h3>Operations cockpit</h3><p>Watch capacity, conversion, check-in velocity, organizer tasks, sponsor deliverables, and run-of-show changes.</p></article>
-        </div>
-      </section>
-      <section id="workflow" class="workflow section-grid">
-        <div><p class="eyebrow">Workflow</p><h2>A repeatable circuit from brief to post-event insight.</h2><p>Every channel receives the right version while the underlying event, inventory, and results stay coherent.</p></div>
-        <ol class="steps">
-          <li><span>01</span><strong>Create one complete event brief</strong></li>
-          <li><span>02</span><strong>Generate channel-ready listings and assets</strong></li>
-          <li><span>03</span><strong>Schedule launch, reminder, and last-call waves</strong></li>
-          <li><span>04</span><strong>Sync RSVP, ticket, and check-in state</strong></li>
-          <li><span>05</span><strong>Report conversion and outcomes by source</strong></li>
-        </ol>
-      </section>
-      <section id="integrations" class="integrations"><div class="section-heading compact"><p class="eyebrow">Ecosystem</p><h2>Meet teams where their work already happens.</h2></div><div class="integration-marquee"><span>Eventbrite</span><span>Meetup</span><span>Meta surfaces</span><span>Google Calendar</span><span>Slack &amp; Discord</span><span>Email platforms</span></div></section>
-      <section id="principles" class="architecture">
-        <div class="arch-card large"><p class="eyebrow">Principles</p><h2>Built for organizers who need both reach and control.</h2><p>Distribution should widen the audience without fragmenting the truth. Evento Globolo keeps the canonical event and every channel-specific action connected.</p></div>
-        <div class="arch-card"><strong>One event, many expressions</strong><span>Channel copy can vary without drifting on dates, pricing, location, capacity, or the core promise.</span></div>
-        <div class="arch-card"><strong>Attribution stays attached</strong><span>Source links, promo codes, and campaign waves remain part of the event record from click through attendance.</span></div>
-        <div class="arch-card"><strong>Humans approve the message</strong><span>Automation prepares and schedules channel work while organizers retain editorial and operational control.</span></div>
-      </section>
-      <VentureNetwork current="evento-globolo" />
-      <section id="contact" class="launch">
-        <p class="eyebrow">Early access</p><h2>Use your next event as the pilot.</h2><p>Share the event type, city, expected capacity, current channels, and launch date. Early pilots will shape publishing and ticketing priorities.</p>
-        <div class="hero-actions" style="justify-content:center;"><a class="button primary" href="mailto:hello@evento-globolo.com?subject=Evento%20Globolo%20pilot%20event">Launch a pilot event</a><a class="button secondary" href="https://github.com/evento-globolo" rel="me">Explore the GitHub organization</a></div>
-      </section>
-      <footer class="site-footer"><p>© {year} Evento Globolo. Third-party publishing and ticketing capabilities depend on each platform’s API, permissions, and current policies.</p><div class="footer-links"><a href="https://github.com/evento-globolo">GitHub</a><a href="mailto:hello@evento-globolo.com">Contact</a><a href="#top">Back to top</a></div></footer>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="site-header"><div class="nav-shell"><a class="wordmark" href="#top">Evento <span>Globolo</span></a><nav class="desktop-nav" aria-label="Primary"><a href="#route">Discover</a><a href="#operations">Organizer OS</a><a href="#product">Cross-post</a><a href="https://github.com/evento-globolo">Source</a></nav><div class="account-nav"><a href="https://user.evento-globolo.github.io/">Log in</a><a class="signup" href="https://auth.evento-globolo.github.io/">Sign up</a></div><details class="mobile-nav"><summary>Menu</summary><nav aria-label="Mobile navigation"><a href="#route">Discover</a><a href="#operations">Organizer OS</a><a href="#product">Cross-post</a><a href="https://github.com/evento-globolo">Source</a><a href="https://user.evento-globolo.github.io/">Log in</a><a class="signup" href="https://auth.evento-globolo.github.io/">Sign up</a></nav></details></div></header>
+    <main id="content">
+      <section class="mast" id="top"><div class="mast-copy"><div class="edition"><span>Global events operating system</span><span>Edition 001</span></div><div><h1>The world is <i>already</i> happening.</h1><p class="lede">Discover it, publish it, reserve a place, open the doors, and keep the community together after the room empties.</p><div class="links"><a href="https://user.evento-globolo.github.io/">Browse events</a><a href="https://auth.evento-globolo.github.io/">Start organizing</a><a href="https://github.com/evento-globolo/evgl-api">Event API</a></div></div></div><aside class="route" id="route"><h2>A sample night / local time</h2><ol class="stops"><li class="stop"><span class="time">18:00</span><span class="dot"></span><div><h3>Medellín / hardware table</h3><p>Workshop · 26 seats · makerspace · Spanish + English</p></div></li><li class="stop"><span class="time">19:30</span><span class="dot"></span><div><h3>Lima / rooftop screening</h3><p>Film · open air · waitlist moving · accessibility notes attached</p></div></li><li class="stop"><span class="time">21:00</span><span class="dot"></span><div><h3>Austin / protocol salon</h3><p>Talks · community published · venue check-in window confirmed</p></div></li><li class="stop"><span class="time">23:15</span><span class="dot"></span><div><h3>Online / after-room</h3><p>Conversation continues · organizer-owned community channel</p></div></li></ol></aside></section>
+      <section class="operations" id="operations"><div class="manifest"><h2>One event. Every moving part.</h2><table><tbody><tr><th>Discover</th><td>Search by place, time, format, language, access needs, and the communities behind the listing.</td></tr><tr><th>Publish</th><td>Give organizers durable event records, venue context, schedules, capacities, and change history.</td></tr><tr><th>Attend</th><td>RSVP, ticket, waitlist, check in, and receive only the updates that affect the actual plan.</td></tr><tr><th>Operate</th><td>Connect organizers, venues, door teams, and live state without turning every event into a spreadsheet.</td></tr><tr><th>Continue</th><td>Keep the people, notes, media, and next gathering attached to a community—not trapped in a ticket email.</td></tr><tr><th>Cross-post</th><td>Keep the canonical event in Evento Globolo, then distribute through supported provider APIs with observable receipts.</td></tr></tbody></table></div><aside class="ticket" aria-label="Illustrative event ticket"><small>Admit one curious person</small><strong>Find<br/>your<br/>room.</strong><span class="code">EVGL / PUBLIC / 2026</span></aside></section>
+      <section class="crosspost" id="product"><h2>Create once, coordinate everywhere.</h2><div class="cards"><article><span>01</span><h3>Publish from one source</h3><p>Keep the canonical event in Evento Globolo, then distribute through supported provider APIs.</p></article><article><span>02</span><h3>Respect every platform</h3><p>Capability-aware adapters use native automation where allowed and guided handoffs where it is not.</p></article><article><span>03</span><h3>Watch work happen</h3><p>Live job status, retries, provider receipts, and reconciliation make cross-posting observable.</p></article></div></section>
+      <section class="access"><div><p class="edition">Choose your doorway</p><h2>Public discovery. Private event work.</h2></div><div class="access-links"><a href="https://user.evento-globolo.github.io/"><small>Attendees</small><strong>User login</strong></a><a href="https://org.evento-globolo.github.io/"><small>Organizers</small><strong>Organization login</strong></a><a href="https://auth.evento-globolo.github.io/"><small>New account</small><strong>Sign up</strong></a></div></section>
     </main>
+    <footer class="site-footer"><div class="footer-shell"><div><strong>Evento Globolo</strong><p>Discovery, publishing, RSVP, ticketing, venues, organizers, and communities—connected around one event record.</p></div><nav aria-label="Explore"><strong>Explore</strong><a href="#route">Discover</a><a href="#operations">Organizer OS</a><a href="#product">Cross-posting</a></nav><nav aria-label="Access"><strong>Access</strong><a href="https://user.evento-globolo.github.io/">User login</a><a href="https://org.evento-globolo.github.io/">Organization login</a><a href="https://auth.evento-globolo.github.io/">Create account</a></nav></div><div class="footer-base"><span>© 2026 Evento Globolo</span><span>Built deliberately with Astro.</span></div></footer>
   </body>
 </html>
